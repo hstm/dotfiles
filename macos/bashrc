@@ -1,0 +1,54 @@
+if [ -f ~/.bash_aliases ]; then
+ . ~/.bash_aliases
+fi
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+export CLICOLOR=1
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='[\u@\h \w$(__git_ps1)]\$ '
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+export SCALA_HOME=/usr/local/Cellar/scala/2.12.7/libexec
+export NODE_PATH=/usr/local/lib/node_modules
+export WORKON_HOME=$HOME/.virtualenvs
+export GOPATH=$HOME/work/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PGDATA='/usr/local/pgsql/data'
+
+# only for Homebrew
+export SPARK_HOME=/usr/local/Cellar/apache-spark/2.3.1/libexec
+export PYTHONPATH=/usr/local/Cellar/apache-spark/2.3.1/libexec/python/:$PYTHONP$
+
+# Pip should only run if there is a virtualenv currently activated
+# export PIP_REQUIRE_VIRTUALENV=true
+
+# Install or upgrade a global package
+# Usage: gpip install –upgrade pip setuptools virtualenv
+gpip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+export PATH=$PATH:$GOPATH:$GOROOT
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# added by Anaconda3 5.2.0 installer
+export PATH="/Users/hstm/miniconda3/bin:$PATH"
+
+# CocoaPods
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/ruby/2.6.0/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
