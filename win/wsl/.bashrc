@@ -178,6 +178,8 @@ export KERL_BUILD_DOCS=yes
 export KERL_INSTALL_MANPAGES=no
 export KERL_INSTALL_HTMLDOCS=yes
 
+export PATH=$HOME/kerl/23.2.7/bin:$PATH
 export PATH=$HOME/elixir/bin:$PATH
 
 export JULIA_NUM_THREADS=4
+source "$HOME/.cargo/env"
