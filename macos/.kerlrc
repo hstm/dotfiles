@@ -1,0 +1,1 @@
+KERL_CONFIGURE_OPTIONS="--disable-hipe --disable-sctp --enable-darwin-64bit --enable-kernel-poll --enable-shared-zlib --enable-smp-support --enable-threads --enable-wx --with-ssl=$(brew --prefix openssl) --without-javac --without-jinterface --without-odbc"
