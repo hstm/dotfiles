@@ -218,8 +218,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH=$PATH:$HOME/.cargo/bin
-
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -229,6 +227,9 @@ test -r "~/.dircolors" && eval $(gdircolors ~/.dircolors)
 
 ### functions
 
+# set a specific JDK version
+# e. g. jdk 16.0.1
+# for installed JDKs, see /Library/Java/JavaVirtualMachines
 jdk() {
     version=$1
     unset JAVA_HOME;
@@ -237,10 +238,11 @@ jdk() {
 }
 
 export GOPATH=$HOME/Development/toolchain/go
-export PATH=$PATH:/$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
 
 # pyenv settings
 export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 plugin=(
   pyenv
 )
@@ -255,4 +257,6 @@ export MKL_NUM_THREADS=16
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export PATH="$HOME/.poetry/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/Library/Python/3.9/bin:/usr/local/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
