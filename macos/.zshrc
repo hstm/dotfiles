@@ -47,6 +47,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
+
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
@@ -81,6 +82,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+# disable autocompletion for Java, see https://github.com/ohmyzsh/ohmyzsh/issues/2437
+compdef -d java
 
 # User configuration
 
