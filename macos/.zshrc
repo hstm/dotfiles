@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git jhipster)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -203,6 +203,8 @@ alias pgsql_stop='pg_ctl -D /usr/local/var/postgres stop'
 # pyenv, see https://github.com/pyenv/pyenv#how-it-works
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
+alias idea='/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea'
+
 ### env variables
 
 export POWERLINE_CONFIG_COMMAND=~/.local/bin/
@@ -263,4 +265,10 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$HOME/Library/Python/3.9/bin:/usr/local/sbin:$PATH"
 
+export GRAALVM_HOME="/Users/hstm/.sdkman/candidates/java/22.2.r17-grl"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
