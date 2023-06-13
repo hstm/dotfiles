@@ -265,6 +265,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$HOME/Library/Python/3.9/bin:/usr/local/sbin:$PATH"
 
+export PATH="$HOME/.poetry/bin:$PATH"
+
 export GRAALVM_HOME="/Users/hstm/.sdkman/candidates/java/22.2.r17-grl"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
