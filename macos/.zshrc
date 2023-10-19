@@ -244,14 +244,17 @@ jdk() {
 export GOPATH=$HOME/Development/toolchain/go
 export PATH=$PATH:$GOPATH/bin
 
-# pyenv settings
+#  settings
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 plugin=(
   pyenv
+  poetry
 )
+
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 export PATH=$PATH:$HOME/.cargo/bin
 
@@ -263,9 +266,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$HOME/Library/Python/3.9/bin:/usr/local/sbin:$PATH"
 
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="/Users/hstm/.local/bin:$PATH"
 
-export GRAALVM_HOME="/Users/hstm/.sdkman/candidates/java/22.2.r17-grl"
+export GRAALVM_HOME="/Users/hstm/.sdkman/candidates/java/22.3.r17-grl"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -276,3 +279,15 @@ export NVM_DIR="$HOME/.nvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Add JBang to environment
+alias j!=jbang
+export PATH="$HOME/.jbang/bin:$PATH"
+
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
