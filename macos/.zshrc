@@ -16,6 +16,7 @@ export ZSH="/Users/hstm/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -79,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose jhipster)
+plugins=(git docker docker-compose pyenv poetry jhipster)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -205,25 +206,35 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 alias idea='/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea'
 # alias python='/usr/bin/python3'
+#
+alias gyrvpn='sudo openfortivpn 77.245.191.237:54443 -u ADMext --realm=webserver --set-dns=0 --trusted-cert 060047e0a650da407056b4c7e5be23f9c8a8c17b4f87482e4f7423e447569549'
 
 ### env variables
 
 export POWERLINE_CONFIG_COMMAND=~/.local/bin/
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/hstm/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/hstm/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/hstm/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/hstm/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+#  settings
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/hstm/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/hstm/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/hstm/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/hstm/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 
 export CLICOLOR=1
 # gdircolors in coreutils, brew install coreutils
@@ -243,18 +254,6 @@ jdk() {
 
 export GOPATH=$HOME/Development/toolchain/go
 export PATH=$PATH:$GOPATH/bin
-
-#  settings
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-plugin=(
-  pyenv
-  poetry
-)
-
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 export PATH=$PATH:$HOME/.cargo/bin
 
@@ -291,3 +290,6 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+
