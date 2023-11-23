@@ -207,7 +207,8 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias idea='/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea'
 # alias python='/usr/bin/python3'
 #
-alias gyrvpn='sudo openfortivpn 77.245.191.237:54443 -u ADMext --realm=webserver --set-dns=0 --trusted-cert 060047e0a650da407056b4c7e5be23f9c8a8c17b4f87482e4f7423e447569549'
+# alias gyrvpn='sudo openfortivpn 77.245.191.237:54443 -u ADMext --realm=webserver --set-dns=0 --trusted-cert 060047e0a650da407056b4c7e5be23f9c8a8c17b4f87482e4f7423e447569549 --pppd-accept-remote=0'
+alias gyrvpn='sudo openfortivpn'
 
 ### env variables
 
@@ -282,7 +283,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Add JBang to environment
 alias j!=jbang
 export PATH="$HOME/.jbang/bin:$PATH"
-
 
 
 # The next line updates PATH for the Google Cloud SDK.
